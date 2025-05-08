@@ -23,6 +23,28 @@ class List
         int nim;
         cout << "\nMasukan Nomor Mahasiswa: ";
         cin >> nim;
-    }
+        
+    Node *nodebaru = new Node;
+    nodebaru->noMhs = nim;
 
-    
+    if (START == NULL ||  nim == START->noMhs)
+    {
+        if ((START != NULL) && (nim ++== START->noMhs))
+    {
+         cout << "\nDuplikasi noMhs tidak diijinkan\n";
+         return;
+    }
+    nodebaru->next = START;
+    START = nodebaru;
+    return;
+}
+
+Node *previous = START;
+Node *current = START;
+
+while ((current != NULL) && (nim >= current->noMhs))
+{
+  if (nim == current->noMhs)
+  {
+    cout << "\nDuplikasi noMhs tidak diijinkan\n";
+  }
