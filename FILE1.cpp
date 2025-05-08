@@ -178,7 +178,7 @@ int main()
             else
             {
                 cout << endl
-                << "data ditemukan" << endl;
+                     << "data ditemukan" << endl;
                 cout << "\nNo Mahasiswa: " << current->noMhs << endl;
             }
         }
@@ -193,18 +193,24 @@ int main()
             cout << "pilihan salah !." << endl;
         }
         break;
+        }
     }
 }
-}
 
-//selesai
+// selesai
 
 
-//bagian ini perbaikan commit
-//lass Node
+// bagian ini perbaikan commit
+// class Node
 //{
-//    public:
- //       int noMhs;
-   //     Node *next;
-  //  };
-    
+//     public:
+//        int noMhs;
+//      Node *next;
+//  };
+
+
+
+// perbaikan commit
+//class singlelinkedlist
+//{
+ //   Node *START;
