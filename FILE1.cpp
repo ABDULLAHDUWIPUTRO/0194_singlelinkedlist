@@ -24,3 +24,5 @@ class List
         cout << "\nMasukan Nomor Mahasiswa: ";
         cin >> nim;
     }
+
+    
