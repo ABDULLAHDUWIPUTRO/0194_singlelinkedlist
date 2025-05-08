@@ -4,95 +4,109 @@ using namespace std;
 
 class Node
 {
-    public:
-        int noMhs;
-        Node *next;
+public:
+    int noMhs;
+    Node *next;
 };
 
 class singlelinkedlist
 {
     Node *START;
 
-    public:
-       singlelinkedlist()
-       {
+public:
+    singlelinkedlist()
+    {
         START = NULL;
-       }
+    }
     void addNode()
     {
         int nim;
         cout << "\nMasukan Nomor Mahasiswa: ";
         cin >> nim;
-        
-    Node *nodebaru = new Node;
-    nodebaru->noMhs = nim;
 
-    if (START == NULL ||  nim == START->noMhs)
-    {
-        if ((START != NULL) && (nim == START->noMhs))
-    {
-         cout << "\nDuplikasi noMhs tidak diijinkan\n";
-         return;
-    }
-    nodebaru->next = START;
-    START = nodebaru;
-    return;
-}
+        Node *nodebaru = new Node;
+        nodebaru->noMhs = nim;
 
-Node *previous = START;
-Node *current = START;
+        if (START == NULL || nim == START->noMhs)
+        {
+            if ((START != NULL) && (nim == START->noMhs))
+            {
+                cout << "\nDuplikasi noMhs tidak diijinkan\n";
+                return;
+            }
+            nodebaru->next = START;
+            START = nodebaru;
+            return;
+        }
 
-while ((current != NULL) && (nim >= current->noMhs))
-{
-  if (nim == current->noMhs)
-  {
-    cout << "\nDuplikasi noMhs tidak diijinkan\n";
-    return;
-  }
-  previous = current;
-  current = current->next;
-}
+        Node *previous = START;
+        Node *current = START;
 
-nodebaru->next = current;
-previous->next = nodebaru;
-    }
+        while ((current != NULL) && (nim >= current->noMhs))
+        {
+            if (nim == current->noMhs)
+            {
+                cout << "\nDuplikasi noMhs tidak diijinkan\n";
+                return;
+            }
+            previous = current;
+            current = current->next;
+        }
 
-bool listEmpty()
-{
-    return (START == NULL);
-}
-
-bool Search(int nim, Node **Previous, Node **current)
-{
-    *Previous = START;
-    *current = START;
-
-    while ((*current != NULL) && (nim != (*current)->noMhs))
-    {
-        *Previous = *current;
-        *current = (*current)->next;
+        nodebaru->next = current;
+        previous->next = nodebaru;
     }
 
-    return (*current!= NULL);
-}
+    bool listEmpty()
+    {
+        return (START == NULL);
+    }
 
-bool delNode(int nim)
-{
-    Node *current, *previous;
-    if (!Search(nim, &previous, &current))
-    return false;
+    bool Search(int nim, Node **Previous, Node **current)
+    {
+        *Previous = START;
+        *current = START;
 
-    if (current == START)
-        START = START ->next;
-    else
-     previous->next = current->next;
+        while ((*current != NULL) && (nim != (*current)->noMhs))
+        {
+            *Previous = *current;
+            *current = (*current)->next;
+        }
 
-    delete current;
-    return true;
-}
+        return (*current != NULL);
+    }
 
- void traverse()
- {
-    if (listEmpty())
-    
- 
+    bool delNode(int nim)
+    {
+        Node *current, *previous;
+        if (!Search(nim, &previous, &current))
+            return false;
+
+        if (current == START)
+            START = START->next;
+        else
+            previous->next = current->next;
+
+        delete current;
+        return true;
+    }
+
+    void traverse()
+    {
+        if (listEmpty())
+        {
+            cout << "\nList kosong\n";
+        }
+        else
+        {
+            cout << "\nData didalam list adalah:\n";
+            Node *currentNode = START;
+            while (currentNode != NULL)
+            {
+                cout << currentNode->noMhs << endl;
+                currentNode = currentNode->next;
+            }
+            cout << endl;
+        }
+    }
+};
