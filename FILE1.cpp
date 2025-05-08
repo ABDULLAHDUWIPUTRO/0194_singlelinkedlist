@@ -198,3 +198,13 @@ int main()
 }
 
 //selesai
+
+
+//bagian ini perbaikan commit
+//lass Node
+//{
+//    public:
+ //       int noMhs;
+   //     Node *next;
+  //  };
+    
