@@ -214,3 +214,11 @@ int main()
 //class singlelinkedlist
 //{
  //   Node *START;
+
+
+ //perbaikan commit
+// case '1':
+//{
+  //  Mhs.addNode();
+//}
+//break;
