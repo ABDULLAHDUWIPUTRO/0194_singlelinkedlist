@@ -127,6 +127,36 @@ int main()
         cout << "4. mencari data dalam list" << endl;
         cout << "5. keluar" << endl;
         cout << endl
-        << "masukan pilihan (1-5): ";
+             << "masukan pilihan (1-5): ";
         cin >> ch;
         switch (ch)
+        {
+        case '1':
+        {
+            Mhs.addNode();
+        }
+        break;
+
+        case '2':
+        {
+            if (Mhs.listEmpty())
+            {
+                cout << endl
+                     << "list kosong" << endl;
+                break;
+            }
+            cout << endl
+            << "\nMasukan no mahasiswa yang akan dihapus : ";
+            cin >> nim;
+            if (Mhs.delNode(nim) == false)
+            cout << endl
+            << "data tidak ditemukan" << endl;
+            else
+            cout << endl
+                 << "data dengan nomor mahasiswa" << nim << " berhasil dihapus " << endl;
+        }
+        break;
+        case '3':
+        {
+            Mhs.traverse();
+        }
