@@ -177,4 +177,22 @@ int main()
                      << "data tidak dittemukann" << endl;
             else
             {
+                cout << endl
+                << "data ditemukan" << endl;
+                cout << "\nNo Mahasiswa: " << current->noMhs << endl;
             }
+        }
+        break;
+        case '5':
+        {
+            exit(0);
+        }
+        break;
+        default:
+        {
+            cout << "pilihan salah !." << endl;
+        }
+        break;
+    }
+}
+}
