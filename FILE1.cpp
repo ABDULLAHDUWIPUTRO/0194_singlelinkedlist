@@ -9,12 +9,12 @@ class Node
         Node *next;
 };
 
-class List
+class singlelinkedlist
 {
     Node *START;
 
     public:
-       List()
+       singlelinkedlist()
        {
         START = NULL;
        }
@@ -58,3 +58,20 @@ previous->next = nodebaru;
     }
 
 bool listEmpty()
+{
+    return (START == NULL);
+}
+
+bool Search(int nim, Node **Previous, Node **current)
+{
+    *Previous = START;
+    *current = START;
+
+    while ((*current != NULL) && (nim != (*current)->noMhs))
+    {
+        *Previous = *current;
+        *current = (*current)->next;
+    }
+
+    return (*current!= NULL);
+}
